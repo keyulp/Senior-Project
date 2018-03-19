@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2 class="well"> Welcome </h2>
+
+<p style="padding-top:1em;padding-bottom:1em;"></p>
+
+<button class="btn-lg"> @Html.ActionLink("Anime List", "List", "AnimeList")</button>
+<p style="padding-right:1em;padding-left:1em;"></p>
+<button class="btn-lg"> @Html.ActionLink("Game List", "List", "GameList")</button>
+
+<p style="padding-top:2em;padding-bottom:3em;"></p>
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <button class="btn-lg" href="javascript:document.getElementById('logoutForm').submit()">Logout</button>
+    }
+}
